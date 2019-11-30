@@ -13,7 +13,7 @@ const (
 	N = 10
 )
 
-// TODO: write a comment
+// Sketch represents Count-min Sketch, which is a probabilistic data structure to store counts of each element.
 type Sketch [k][N]int
 
 // NewSketch constructs a Sketch.
@@ -21,7 +21,7 @@ func NewSketch() *Sketch {
 	return new(Sketch)
 }
 
-// TODO: write a comment
+// Add stores `elem` to Sketch.
 func (s *Sketch) Add(elem string) error {
 	for i := 0; i < k; i++ {
 		h, err := util.DoubleHashing(elem, i, N)
@@ -34,7 +34,7 @@ func (s *Sketch) Add(elem string) error {
 	return nil
 }
 
-// TODO: write a comment
+// Cardinality returns a count the element being stored in Sketch.
 func (s *Sketch) Cardinality(elem string) (int, error) {
 	min := math.MaxInt64
 
