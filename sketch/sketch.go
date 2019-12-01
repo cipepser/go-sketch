@@ -34,8 +34,8 @@ func (s *Sketch) Add(elem string) error {
 	return nil
 }
 
-// Cardinality returns a count the element being stored in Sketch.
-func (s *Sketch) Cardinality(elem string) (int, error) {
+// Count returns a count the element being stored in Sketch.
+func (s *Sketch) Count(elem string) (int, error) {
 	min := math.MaxInt64
 
 	for i := 0; i < k; i++ {
@@ -44,9 +44,8 @@ func (s *Sketch) Cardinality(elem string) (int, error) {
 			return 0, err
 		}
 
-		v := s[i][h]
-		if v < min {
-			min = v
+		if s[i][h] < min {
+			min = s[i][h]
 		}
 	}
 

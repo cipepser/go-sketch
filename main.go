@@ -14,8 +14,11 @@ func main() {
 		"c", "c", "c",
 		"d", "d", "d", "d",
 		"e", "e", "e", "e", "e",
+		"f", "f", "f", "f", "f", "f",
+		"g", "g", "g", "g", "g", "g", "g",
+		"h", "h", "h", "h", "h", "h", "h", "h",
 	}
-	uniques := []string{"a", "b", "c", "d", "e"}
+	uniques := []string{"a", "b", "c", "d", "e", "f", "g", "h"}
 
 	for _, e := range elements {
 		err := s.Add(e)
@@ -27,7 +30,7 @@ func main() {
 	fmt.Println(s)
 
 	for _, e := range uniques {
-		cnt, err := s.Cardinality(e)
+		cnt, err := s.Count(e)
 		if err != nil {
 			panic(err)
 		}
