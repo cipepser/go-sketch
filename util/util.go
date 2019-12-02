@@ -10,10 +10,8 @@ import (
 // CalcMD5Hash calculates hash value of the string input by MD5.
 // Remark: MD5 returns 128-bits value
 func CalcMD5Hash(str string) string {
-	hasher := md5.New()
-	hasher.Write([]byte(str))
-
-	return hex.EncodeToString(hasher.Sum(nil))
+	h := md5.Sum([]byte(str))
+	return hex.EncodeToString(h[:])
 }
 
 // DoubleHashing calculates hash value by double-hashing.
